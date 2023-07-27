@@ -15,12 +15,8 @@ export default function ImageCompression() {
     const fileInputRef = useRef();
 
 
-    const [originalImages, setOriginalImages] = useState([]);
     const [compressedImagesLoading, setCompressedImagesLoading] = useState(false)
     const [compressedImagesArray, setCompressedImagesArray] = useState([])
-
-
-    // const [imageProgress, setImageProgress] = useState({}); // State to track the progress of each image
 
 
     const handleFileInputClick = () => {
@@ -31,20 +27,8 @@ export default function ImageCompression() {
 
     const handleFileSelected = (event) => {
         const selectedFiles = event.target.files;
-
         const filesArray = Object.values(selectedFiles);
-
-
-        console.log('Selected File:', filesArray);
-
-
         compressImagesAlgorithm(filesArray)
-
-
-
-
-        // Here, you can handle the selected file as needed
-        // For example, you can upload it to a server or process it further
     };
 
     const downloadCompressedImage = (downloadLink, fileName) => {
@@ -75,13 +59,10 @@ export default function ImageCompression() {
                 useWebWorker: true,
                 onProgress: (progress) => {
                     console.log(`Compression Progress: ${progress}%`, originalFileName);
-                    // Update the loading state based on the progress value
                     setCompressedImagesLoading(progress);
 
                 },
             };
-
-
 
             return imageCompression(uncompressedImage, options)
                 .then((output) => {
@@ -116,9 +97,6 @@ export default function ImageCompression() {
                     setCompressedImagesLoading(false)
 
                 });
-
-
-
         })
 
 
@@ -132,18 +110,11 @@ export default function ImageCompression() {
 
 
     const deleteSpecificImage = (currentIndex) => {
-
         const modifiedArray = [...compressedImagesArray];
         modifiedArray.splice(currentIndex, 1);
         setCompressedImagesArray(modifiedArray);
 
     }
-
-
-    console.log("imagesdsdsds", compressedImagesArray)
-
-
-
 
     return (
 
@@ -198,23 +169,12 @@ export default function ImageCompression() {
                     </div>
 
                     <div className='compressed-images-div'>
-
-
-
                         {
                             compressedImagesArray.length > 0 ?
 
                                 compressedImagesArray.map((compressedItem, currentIndex) => {
-
-
-
-
                                     return <div className='selected-compressed-images' key={compressedItem.fileName}>
                                         <div className='compressed-image'>
-
-
-
-
                                             <div className='cross-icon-compressed'>
                                                 <FontAwesomeIcon icon={faTimes} onClick={() => deleteSpecificImage(currentIndex)} />
                                             </div>
@@ -222,7 +182,6 @@ export default function ImageCompression() {
                                             <p className='reduction-percentage'>{compressedItem.compressionRatio + "%"}</p>
 
                                             <div className='overlay'></div>
-
                                             <img src={compressedItem.downloadLink} alt='image.png' />
 
                                             <div className='download-button-container'>
@@ -230,6 +189,7 @@ export default function ImageCompression() {
                                                     Download Image
                                                 </button>
                                             </div>
+
                                         </div>
                                     </div>
 
@@ -259,17 +219,10 @@ export default function ImageCompression() {
 
                     </div> */}
 
-
-
-
-
                 </div>
             </div>
 
-
             <div className="col-xl-2 col-lg-2 col-md-2 col-sm-2"></div>
-
-
         </div>
     )
 }

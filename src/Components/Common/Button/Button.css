@@ -1,0 +1,27 @@
+.button-with-icon {
+    position: relative;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+    /* letter-spacing: 0.02em; */
+    border-radius: 4px;
+    height: 40px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 0 0.9em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    min-width: 60px;
+    transition: color 0.2s ease-out, background-color 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.button-with-icon:hover {
+    opacity: 0.6;
+}

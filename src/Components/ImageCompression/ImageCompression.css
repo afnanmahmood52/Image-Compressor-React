@@ -14,7 +14,7 @@
 
 
 .selected-compressed-images {
-    border: 2px solid #000;
+    border: 4px solid #7ec0f7;
     /* Adjust the border color as needed */
     /* To create square corners */
     width: 200px;
@@ -25,6 +25,7 @@
     /* Add spacing between images */
     position: relative;
     overflow: hidden;
+    border-radius: 5px;
     /* Add relative positioning to handle child elements */
 }
 

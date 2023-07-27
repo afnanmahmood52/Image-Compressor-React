@@ -16,7 +16,7 @@ export default function Button(props) {
 
     return (
         <button style={style} onClick={onClick} disabled={disabled} className='button-with-icon'>
-            <FontAwesomeIcon icon={buttonIcon} /> {buttonText}
+            <FontAwesomeIcon icon={buttonIcon} /> <span>{buttonText}</span>
         </button>
     );
 }
